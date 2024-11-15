@@ -1,0 +1,85 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('./assets/wood.jpg');
+    background-size: 100% 100%;
+}
+.Box{
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 400px;
+    border-radius: 20px;
+    background-color: white;
+
+}
+
+#modalBtn{
+    padding: 10px 20px ;
+    border: none;
+    border-radius: 5px;
+    background: rgb(60, 156, 194);
+    color: white;
+    cursor: pointer;
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.background::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.5;
+    z-index: 3; /* Lower than modal */
+}
+
+.modal {
+    height: 300px;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    align-items: start;
+    width: 500px;
+    border-radius: 20px;
+    z-index: 5; /* Higher than the background overlay */
+    background-color: white;
+    
+}
+
+#closeBtn{
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    color: red;
+    cursor: pointer;
+}
+
+.isActive{
+    display: none;
+}
