@@ -1,5 +1,6 @@
 let userInput = document.getElementById('input')
 let btn = document.getElementById('btn')
+let clearItemsBtn = document.getElementById('clearItms')
 let list = document.getElementById('list')
 let todoList = []
 let editId = null
@@ -17,6 +18,11 @@ function renderList() {
         list.appendChild(li)
     })
 }
+
+clearItemsBtn.addEventListener('click', function () {
+    todoList = []
+    list.innerHTML = ''
+})
 
 btn.addEventListener('click', function () {
 

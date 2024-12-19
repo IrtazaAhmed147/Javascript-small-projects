@@ -15,6 +15,9 @@ main{
     align-items: center;
     justify-content: center;
 }
+button{
+    cursor: pointer;
+}
 
 .container{
     height: 350px;
@@ -37,7 +40,7 @@ main{
     background-color: #435cff;
     border-radius: 0px 5px 5px 0px;
     border: none;
-    cursor: pointer;
+   
     width: 15%;
 }
 #btn:hover{
@@ -69,7 +72,6 @@ main{
 .todo button{
     border: none;
     background-color: transparent;
-    cursor: pointer;
     font-size: 17px;
 }
 .deleteBtn{
@@ -77,4 +79,12 @@ main{
 }
 .editBtn{
     color: green;
+}
+
+#clearItms{
+    background-color: transparent;
+    color: red;
+    text-align: center;
+    border: none;
+    font-size:18px;
 }
