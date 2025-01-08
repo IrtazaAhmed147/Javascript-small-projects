@@ -1,11 +1,13 @@
 let ul = document.getElementById('ul')
 let btn = document.querySelector('.btn')
 let btnBox = document.querySelector('#btnBox')
+let heading = document.getElementById('heading')
 
 btns.forEach((btn) => {
     let button = document.createElement('button')
     button.setAttribute('class', 'btn')
     button.setAttribute('onClick', `getItems('${btn.title}')`)
+
     button.innerHTML = `${btn.title}`
     btnBox.appendChild(button)
 })
@@ -14,10 +16,17 @@ btns.forEach((btn) => {
 
 function getItems(category = 'All') {
     ul.innerHTML = ''
+    if(category === 'All') {
+        heading.innerHTML = 'Our Menu'
+    } else {
+
+        heading.innerHTML = category
+    }
     menu.filter((item) => {
         return category === 'All' || item.category === category
     }).forEach((item) => {
         let li = document.createElement('li')
+        li.setAttribute('class', 'li')
 
         li.innerHTML = `<img src=${item.image} alt="">
                     <div class="detailBox">
