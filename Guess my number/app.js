@@ -15,14 +15,12 @@ let maxLevel = 5;
 let selectionCount = 5;
 
 
-console.log(randomNum)
 function resetLevel() {
     selectionCount = 6 - level; 
     randomNum = Math.ceil(Math.random() * 20);
     selection.innerHTML = selectionCount;
     userInput.value = '';
     checkBtn.disabled = false;
-    console.log(randomNum)
 }
 
 function resetGame() {
