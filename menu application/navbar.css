@@ -1,0 +1,152 @@
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 10px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    height: 10vh;
+    background-color: #1e1e1e !important;
+
+}
+
+.logo a {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    /* Add shadow to logo */
+}
+
+
+.logo .highlight {
+    color: #00aaff;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+
+    color: #006394;
+    font-weight: 500;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+
+.social-icons a {
+    color: #00aaff;
+    text-decoration: none;
+    font-size: 18px;
+    margin-left: 15px;
+    transition: color 0.3s;
+}
+
+#Bars {
+    cursor: pointer;
+    font-size: 20px;
+    border: none;
+    background-color: transparent;
+    color: #00aaff;
+}
+
+.barActive {
+    display: none;
+}
+
+.resNav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 300px;
+
+    height: 100vh;
+    background-color: #0e0e0e;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.NavUlBox {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.resNavUl {
+    flex-direction: column;
+}
+
+.resIcon {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.resIcon a {
+    margin: 0;
+}
+
+.isRes {
+    display: none;
+}
+
+.resLogo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+#close {
+    background-color: transparent;
+    border: none;
+    color: red;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.backgroundforModal {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+    left: 0;
+    opacity: 0.5;
+
+}
+
+.backgroundforModalActive {
+    display: none;
+}
+
+@media (max-width: 700px) {
+
+    .active {
+        display: none;
+    }
+
+    .barActive {
+        display: block;
+    }
+
+    .resHeader {
+        padding: 10px;
+        display: flex;
+        justify-content: end;
+        box-shadow: none;
+        background-color: transparent;
+    }
+
+
+
+}

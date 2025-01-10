@@ -1,17 +1,20 @@
 let ul = document.getElementById('ul')
 let btn = document.querySelector('.btn')
-let btnBox = document.querySelector('#btnBox')
+let btnBox = document.querySelectorAll('.btnBox')
 let heading = document.getElementById('heading')
 
-btns.forEach((btn) => {
-    let button = document.createElement('button')
-    button.setAttribute('class', 'btn')
-    button.setAttribute('onClick', `getItems('${btn.title}')`)
 
-    button.innerHTML = `${btn.title}`
-    btnBox.appendChild(button)
-})
 
+btnBox.forEach((box) => {
+    btns.forEach((btn) => {
+        let button = document.createElement('button');
+        button.setAttribute('class', 'btn');
+        button.setAttribute('onClick', `getItems('${btn.title}')`);
+
+        button.innerHTML = `${btn.title}`;
+        box.appendChild(button);
+    });
+});
 
 
 function getItems(category = 'All') {
