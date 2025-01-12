@@ -4,18 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <title>Video</title>
 </head>
 <body>
 
+    <div class="vidBox">
 
-    <video id="video">
-        <source src="./assets/video.mp4" type="video/mp4" />
-    </video>
-    <div class="btnBox">
+        <video loop id="video">
+            <source  src="./assets/video.mp4" type="video/mp4" />
+        </video>
+        <div class="controlBox">
 
-        <button id="play" class="btn">Play</button>
-        <button id="pause" class="btn active">Pause</button>
+            <div style="width: 90%;">
+                <input id="videoLengthRange" type="range" min="0" step="0.1" value="0">
+                <div style="display: flex; justify-content: space-between;">
+                    
+                    <div style="display: flex; align-items: center; width: 300px;">
+                        
+                        <button class="btn" id="play-pause"><i class="fa-solid fa-play"></i></button>
+                        <button class="btn" id="volume"><i class="fa-solid fa-volume-high"></i></button>
+                        <input id="volumeRange" min="0" max="100" step="1" value="80" type="range">
+                        
+                    </div>
+                    <p id="videoTime"></p>
+                </div>
+            </div>
+        </div>
+
     </div>
     
 
