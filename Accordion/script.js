@@ -1,5 +1,3 @@
-// script.js
-
 const headers = document.querySelectorAll(".accordion-header");
 
 headers.forEach((header) => {
@@ -12,15 +10,13 @@ headers.forEach((header) => {
       content.classList.remove("open");
       icon.textContent = "+";
     } else {
-      // Close any open accordion items
       document.querySelectorAll(".accordion-content").forEach((item) => {
         item.classList.remove("open");
         item.previousElementSibling.querySelector(".icon").textContent = "+";
       });
 
-      // Open the current one
       content.classList.add("open");
-      icon.textContent = "−";
+      icon.textContent = "-";
     }
   });
 });
