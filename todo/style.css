@@ -1,25 +1,28 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: sans-serif;
+    font-family: "Afacad Flux", serif;
 }
-body{
+
+body {
     background-color: #e2ece9;
-    
+
 }
-main{
+
+main {
     height: 100vh;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-button{
+
+button {
     cursor: pointer;
 }
 
-.container{
+.container {
     height: 350px;
     width: 500px;
     background-color: white;
@@ -30,31 +33,36 @@ button{
     justify-content: center;
     gap: 10px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}   
-.inputBox{
+}
+
+.inputBox {
     display: flex;
     justify-content: center;
 }
-#btn{
+
+#btn {
     padding: 5px 10px;
-    background-color: #435cff;
+    background-color: #7f90ff;
     border-radius: 0px 5px 5px 0px;
     border: none;
-   
+    transition: all 0.4s ease-in-out;
     width: 15%;
 }
-#btn:hover{
-    background-color: #384dd8;
+
+#btn:hover {
+    background-color: #6276ff;
 }
-#input{
+
+#input {
     padding: 4px 5px;
     outline: none;
     width: 85%;
-        border-radius: 5px 0px 0px 5px;
-    border: 1px solid grey; 
+    border-radius: 5px 0px 0px 5px;
+    border: 1px solid #d5d5d5;
     border-right: none;
 }
-#list{
+
+#list {
     list-style: none;
     display: flex;
     flex-direction: column;
@@ -63,28 +71,42 @@ button{
     min-height: 170px;
 }
 
-.todo{
+.todo {
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.todo button{
+
+.todo button {
     border: none;
     background-color: transparent;
     font-size: 17px;
 }
-.deleteBtn{
+
+.deleteBtn {
     color: red;
-}
-.editBtn{
-    color: green;
+    &:hover{
+        color: rgb(214, 0, 0);
+    }
 }
 
-#clearItms{
+.editBtn {
+    color: green;
+    &:hover{
+        color: rgb(0, 92, 0);
+    }
+}
+
+#clearItms {
     background-color: transparent;
     color: red;
     text-align: center;
     border: none;
-    font-size:18px;
+    font-size: 18px;
+}
+
+form {
+    display: flex;
+    width: 100%;
 }

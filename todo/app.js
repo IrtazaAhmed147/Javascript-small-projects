@@ -24,8 +24,8 @@ clearItemsBtn.addEventListener('click', function () {
     list.innerHTML = ''
 })
 
-btn.addEventListener('click', function () {
-
+btn.addEventListener('click', function (e) {
+    e.preventDefault()
     if (btn.innerHTML === 'Add') {
 
         if (userInput.value.trim()) {
