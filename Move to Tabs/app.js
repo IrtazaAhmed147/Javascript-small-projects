@@ -23,7 +23,7 @@ const contentArr = [
 let details = document.getElementById('details')
 let btnBox = document.getElementById('btn-box')
 
-
+    
 btnArr.map((item) => {
     let button = document.createElement('button')
     button.classList.add('btn')
