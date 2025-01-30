@@ -87,3 +87,12 @@ circle {
         stroke-dashoffset: -125px;
     }
 }
+
+@media screen and (max-width: 340px) {
+    h1{
+        font-size: 37px;
+    }
+    .weather-data{
+        font-size: 17px;
+    }
+}
