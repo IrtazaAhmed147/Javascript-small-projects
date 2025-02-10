@@ -13,10 +13,14 @@ let bookMarkBox = document.querySelector(".bookMarkBox")
 let selected;
 
 
-bookMarkListBtn.addEventListener("mouseover", () => bookMarkBox.style.display = "block")
-bookMarkListBtn.addEventListener("mouseout", () => bookMarkBox.style.display = "none")
-bookMarkBox.addEventListener("mouseover", () => bookMarkBox.style.display = "block")
-bookMarkBox.addEventListener("mouseout", () => bookMarkBox.style.display = "none")
+bookMarkListBtn.addEventListener("click", () => bookMarkBox.classList.toggle("active"))
+
+window.addEventListener("resize", function () {
+    if (window.innerWidth <= 768) {
+        document.querySelector(".right").style.display = "none";
+        document.querySelector(".left").style.display = "flex";
+    }
+});
 
 
 function showMessage(info) {
@@ -131,25 +135,20 @@ async function prevRecipe() {
 }
 
 
-async function detailRecipe(id) {
-
+function detailRecipe(id) {
     try {
+        right.innerHTML = renderLoader();
+        fetch(`https://forkify-api.herokuapp.com/api/v2/recipes/${id}`)
+            .then((response) => response.json())
+            .then((res) => {
+                if (res.status !== "success") return;
 
-        right.innerHTML = renderLoader()
-        const response = await fetch(`https://forkify-api.herokuapp.com/api/v2/recipes/${id}`)
-        const res = await response.json()
+                let recipe = res.data.recipe;
 
-        if (res.status !== "success") {
-            return
-        }
-
-
-        let recipe = res.data.recipe
-
-        right.innerHTML = ""
-        right.innerHTML = `
-        <div class="detailBox">
-          <div class="recipe-img">
+                right.innerHTML = `
+                <div class="detailBox">
+                    <button class="backBtn"><i class="fa-solid fa-arrow-left"></i></button>
+                    <div class="recipe-img">
                         <img src=${recipe.image_url} alt="" width="100%" height="330px">
                     </div>
                     <div class="recipe-title">
@@ -160,14 +159,13 @@ async function detailRecipe(id) {
                             <li><i class="fa-regular fa-clock"></i> ${recipe.cooking_time} Minutes</li>
                             <li><i class="fa-solid fa-users"></i> ${recipe.servings} Servings</li>
                         </ul>
-                        <button class="bookMarkBtn" >
-                        <i class="fa-regular fa-bookmark"></i>
+                        <button class="bookMarkBtn">
+                            <i class="fa-regular fa-bookmark"></i>
                         </button>
                     </div>
                     <div class="recipe-ingredients">
                         <h2>RECIPE INGREDIENTS</h2>
-                        <ul class="recipe-ingredients-list">
-                        </ul>
+                        <ul class="recipe-ingredients-list"></ul>
                     </div>
                     <div class="recipe-directions">
                         <h3>How to cook it</h3>
@@ -175,49 +173,60 @@ async function detailRecipe(id) {
                             directions at their website.</p>
                         <a href=${recipe.source_url} target="_blank"><button>Direction →</button></a>
                     </div>
-                    </div>
-        `
+                </div>
+                `;
 
-        let existingRecipe = bookMarkList.find((recipess) => recipess.id === recipe.id)
+                let existingRecipe = bookMarkList.find((recipess) => recipess.id === recipe.id)
 
 
-        let bookMarkBtn = document.querySelector(".bookMarkBtn")
-        if (existingRecipe) {
-            bookMarkBtn.innerHTML = `<i class="fa-solid fa-bookmark"></i>`
-        }
-        bookMarkBtn.addEventListener('click', () => {
+                let bookMarkBtn = document.querySelector(".bookMarkBtn")
+                if (existingRecipe) {
+                    bookMarkBtn.innerHTML = `<i class="fa-solid fa-bookmark"></i>`
+                }
+                bookMarkBtn.addEventListener('click', () => {
 
-            let existingRecipesIndex = bookMarkList.findIndex((recipess) => recipess.id === recipe.id);
+                    let existingRecipesIndex = bookMarkList.findIndex((recipess) => recipess.id === recipe.id);
 
-            if (existingRecipesIndex !== -1) {
-                bookMarkList = [
-                    ...bookMarkList.slice(0, existingRecipesIndex),
-                    ...bookMarkList.slice(existingRecipesIndex + 1)
-                ];
+                    if (existingRecipesIndex !== -1) {
+                        bookMarkList = [
+                            ...bookMarkList.slice(0, existingRecipesIndex),
+                            ...bookMarkList.slice(existingRecipesIndex + 1)
+                        ];
 
-                bookMarkBtn.innerHTML = `<i class="fa-regular fa-bookmark"></i>`;
-            } else {
-                bookMarkList.push(recipe);
-                bookMarkBtn.innerHTML = `<i class="fa-solid fa-bookmark"></i>`;
-            }
+                        bookMarkBtn.innerHTML = `<i class="fa-regular fa-bookmark"></i>`;
+                    } else {
+                        bookMarkList.push(recipe);
+                        bookMarkBtn.innerHTML = `<i class="fa-solid fa-bookmark"></i>`;
+                    }
 
-            bookMark()
-        })
-        let ul = document.querySelector(".recipe-ingredients-list")
-        recipe.ingredients.map((ingredient) => {
-            let li = document.createElement("li")
-            li.classList.add("ingredients-name")
-            li.innerHTML = `
-                            <i class="fa-solid fa-check"></i> ${ingredient?.quantity || ""} ${ingredient.unit} ${ingredient.description}
-                            `
-            ul.appendChild(li)
-        })
+                    bookMark()
+                })
 
+                right.style.display = "flex"
+                let backBtn = document.querySelector(".backBtn");
+                backBtn.addEventListener("click", () => {
+                    document.querySelector(".left").style.display = "flex";
+                    right.style.display = "none"
+                });
+
+                let ul = document.querySelector(".recipe-ingredients-list");
+                recipe.ingredients.forEach((ingredient) => {
+                    let li = document.createElement("li");
+                    li.classList.add("ingredients-name");
+                    li.innerHTML = `<i class="fa-solid fa-check"></i> ${ingredient?.quantity || ""} ${ingredient.unit} ${ingredient.description}`;
+                    ul.appendChild(li);
+                });
+
+                if (window.innerWidth <= 768) {
+                    document.querySelector(".left").style.display = "none";
+                }
+            });
     } catch (error) {
-        right.innerHTML = showMessage(error.message)
+        right.innerHTML = showMessage(error.message);
         console.log(error);
     }
 }
+
 
 
 function bookMark() {
