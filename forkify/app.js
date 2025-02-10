@@ -36,8 +36,25 @@ function renderHtml(response) {
 }
 
 async function searchRecipe() {
+
     limit = 10
     try {
+        cardList.innerHTML = `
+         <div class="loader">
+                                <div class="bar1"></div>
+                                <div class="bar2"></div>
+                                <div class="bar3"></div>
+                                <div class="bar4"></div>
+                                <div class="bar5"></div>
+                                <div class="bar6"></div>
+                                <div class="bar7"></div>
+                                <div class="bar8"></div>
+                                <div class="bar9"></div>
+                                <div class="bar10"></div>
+                                <div class="bar11"></div>
+                                <div class="bar12"></div>
+                            </div>
+        `
         const response = await fetch(`https://forkify-api.herokuapp.com/api/v2/recipes?search=${searchInput.value}`)
         const res = await response.json()
         if (res.status !== "success") {
@@ -49,6 +66,7 @@ async function searchRecipe() {
         renderHtml(res)
         searchInput.value = ""
     } catch (error) {
+        cardList.innerHTML = error.message
         console.log(error);
     }
 }
@@ -77,6 +95,23 @@ async function prevRecipe() {
 
 async function detailRecipe(id) {
     try {
+
+        right.innerHTML = `
+        <div class="loader">
+                               <div class="bar1"></div>
+                               <div class="bar2"></div>
+                               <div class="bar3"></div>
+                               <div class="bar4"></div>
+                               <div class="bar5"></div>
+                               <div class="bar6"></div>
+                               <div class="bar7"></div>
+                               <div class="bar8"></div>
+                               <div class="bar9"></div>
+                               <div class="bar10"></div>
+                               <div class="bar11"></div>
+                               <div class="bar12"></div>
+                           </div>
+       `
         const response = await fetch(`https://forkify-api.herokuapp.com/api/v2/recipes/${id}`)
         const res = await response.json()
         if (res.status !== "success") {
@@ -88,6 +123,7 @@ async function detailRecipe(id) {
         let recipe = res.data.recipe
         right.innerHTML = ""
         right.innerHTML = `
+        <div class="detailBox">
           <div class="recipe-img">
                         <img src=${recipe.image_url} alt="" width="100%" height="330px">
                     </div>
@@ -115,6 +151,7 @@ async function detailRecipe(id) {
                             directions at their website.</p>
                         <a href=${recipe.source_url} target="_blank"><button>Direction →</button></a>
                     </div>
+                    </div>
         `
         let ul = document.querySelector(".recipe-ingredients-list")
         recipe.ingredients.map((ingredient) => {
@@ -127,11 +164,15 @@ async function detailRecipe(id) {
         })
 
     } catch (error) {
+        right.innerHTML = error.message
         console.log(error);
 
     }
 }
 
-searchBtn.addEventListener("click", searchRecipe)
+searchBtn.addEventListener("click", (e) => {
+    e.preventDefault()
+    searchRecipe()
+})
 nextBtn.addEventListener("click", nextRecipe)
 prevBtn.addEventListener("click", prevRecipe)
