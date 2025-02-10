@@ -1,22 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- css -->
     <link rel="stylesheet" href="./style.css">
     <!-- font -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- favicon -->
-     <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon">
     <title>Forkify</title>
 </head>
+
 <body>
     <section class="background">
         <div class="outer-box">
             <div class="upper-box">
                 <div class="logo"><img src="./images/logo.png" alt="" width="200px"></div>
-                <div class="searchbar"><input type="search" placeholder="Search over 1,000,000 recepes..."> <button><i class="fa-solid fa-magnifying-glass"></i> SEARCH</button></div>
+                <div class="searchbar">
+                    <input id="searchInput" type="search" placeholder="Search over 1,000,000 recepes...">
+                    <button id="searchBtn"><i class="fa-solid fa-magnifying-glass"></i> SEARCH</button>
+                </div>
                 <div class="nav-link">
                     <ul>
                         <li><a href=""><i class="fa-solid fa-pen-to-square"></i> ADD RECIPE</a></li>
@@ -26,121 +33,24 @@
             </div>
             <main class="main">
                 <div class="left">
-                    <div class="card-list">
-                        <div class="card" style="background-color: #f9f5f3;">
-                            <div class="card-img"><img src="./images/pizza.jpg" alt=""></div>
-                            <div class="card-prdct">
-                                <h5>DOUBLE CRUST STUFFED PIZZA</h5>
-                                <p>All Recipes</p>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-img"><img src="./images/pizza.jpg" alt=""></div>
-                            <div class="card-prdct">
-                                <h5>DOUBLE CRUST STUFFED PIZZA</h5>
-                                <p>All Recipes</p>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-img"><img src="./images/pizza.jpg" alt=""></div>
-                            <div class="card-prdct">
-                                <h5>DOUBLE CRUST STUFFED PIZZA</h5>
-                                <p>All Recipes</p>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-img"><img src="./images/pizza.jpg" alt=""></div>
-                            <div class="card-prdct">
-                                <h5>DOUBLE CRUST STUFFED PIZZA</h5>
-                                <p>All Recipes</p>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-img"><img src="./images/pizza.jpg" alt=""></div>
-                            <div class="card-prdct">
-                                <h5>DOUBLE CRUST STUFFED PIZZA</h5>
-                                <p>All Recipes</p>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-img"><img src="./images/pizza.jpg" alt=""></div>
-                            <div class="card-prdct">
-                                <h5>DOUBLE CRUST STUFFED PIZZA</h5>
-                                <p>All Recipes</p>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-img"><img src="./images/pizza.jpg" alt=""></div>
-                            <div class="card-prdct">
-                                <h5>DOUBLE CRUST STUFFED PIZZA</h5>
-                                <p>All Recipes</p>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-img"><img src="./images/pizza.jpg" alt=""></div>
-                            <div class="card-prdct">
-                                <h5>DOUBLE CRUST STUFFED PIZZA</h5>
-                                <p>All Recipes</p>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-img"><img src="./images/pizza.jpg" alt=""></div>
-                            <div class="card-prdct">
-                                <h5>DOUBLE CRUST STUFFED PIZZA</h5>
-                                <p>All Recipes</p>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-img"><img src="./images/pizza.jpg" alt=""></div>
-                            <div class="card-prdct">
-                                <h5>DOUBLE CRUST STUFFED PIZZA</h5>
-                                <p>All Recipes</p>
-                            </div>
+                    <div>
+                        <div class="card-list"></div>
+                        <div class="pgs">
+                            <button id="prevBtn"><i class="fa-solid fa-arrow-left"></i> Previous</button>
+                            <button id="nextBtn">Next <i class="fa-solid fa-arrow-right"></i></button>
                         </div>
                     </div>
-                    <div class="pgs"><button><i class="fa-solid fa-arrow-left"></i> Previous</button> <button>Next <i class="fa-solid fa-arrow-right"></i></button></div>
-                    <div class="copyright"><span >Developed by <a href="">Irtaza Ahmed</a></span></div>
+                    <div class="copyright"><span>Developed by <a href="">Irtaza Ahmed</a></span></div>
                 </div>
                 <div class="right">
-                    <div class="recipe-img"><img src="./images/pizza.jpg" alt="" width="100%" height="330px"></div>
-                    <div class="recipe-title"><h1>DOUBLE CRUST STUFFED PIZZA</h1></div>
-                    <div class="recipe-details">
-                        <ul>
-                            <li><i class="fa-regular fa-clock"></i> 120 Minutes</li>
-                            <li><i class="fa-solid fa-users"></i> 4 Servings</li>
-                        </ul>
-                        <button><i class="fa-regular fa-bookmark"></i></button>
-                    </div>
-                    <div class="recipe-ingredients">
-                        <h2>RECIPE INGREDIENTS</h2>
-                        <ul class="recipe-ingredients-list">
-                            <li class="ingredients-name"><i class="fa-solid fa-check"></i> 1.5 tsps white sugar</li>
-                            <li class="ingredients-name"><i class="fa-solid fa-check"></i> 1 cup warm water</li>
-                            <li class="ingredients-name"><i class="fa-solid fa-check"></i> 1.5 tsps active dry yeast</li>
-                            <li class="ingredients-name"><i class="fa-solid fa-check"></i> 1 tbsp olive oil</li>
-                            <li class="ingredients-name"><i class="fa-solid fa-check"></i> 0.5 tsp salt</li>
-                            <li class="ingredients-name"><i class="fa-solid fa-check"></i> 2 cups all-purpose flour</li>
-                            <li class="ingredients-name"><i class="fa-solid fa-check"></i> 1 can crushed tomatoes</li>
-                            <li class="ingredients-name"><i class="fa-solid fa-check"></i> 1 tbsp packed brown sugar</li>
-                            <li class="ingredients-name"><i class="fa-solid fa-check"></i> 0.5 tsp garlic powder</li>
-                            <li class="ingredients-name"><i class="fa-solid fa-check"></i> 1 tsp olive oil</li>
-                            <li class="ingredients-name"><i class="fa-solid fa-check"></i> 0.5 tsp salt</li>
-                            <li class="ingredients-name"><i class="fa-solid fa-check"></i> 3 cups shredded mozzarella cheese</li>
-                            <li class="ingredients-name"><i class="fa-solid fa-check"></i> 0.5 pound bulk italian sausage</li>
-                            <li class="ingredients-name"><i class="fa-solid fa-check"></i> 1 package sliced pepperoni</li>
-                            <li class="ingredients-name"><i class="fa-solid fa-check"></i> 1 package sliced fresh mushrooms</li>
-                            <li class="ingredients-name"><i class="fa-solid fa-check"></i> 1 green bell pepper chopped</li>
-                            <li class="ingredients-name"><i class="fa-solid fa-check"></i> 1 red bell pepper chopped</li>
-                        </ul>
-                    </div>
-                    <div class="recipe-directions">
-                        <h3>How to cook it</h3>
-                        <p>This recipe was carefully designed and tested by <b>All Recipes</b>. Please check out directions at their website.</p>
-                        <a href="" target="_blank"><button>Direction →</button></a>
-                    </div>
+
                 </div>
             </main>
         </div>
     </section>
+
+
+    <script src="./app.js"></script>
 </body>
+
 </html
