@@ -8,7 +8,7 @@
 .background {
     background: linear-gradient(to right bottom, #fbdb89, #f38982);
     width: 100%;
-    height: 1430px;
+    padding: 80px 0px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -46,8 +46,7 @@
 }
 
 .searchbar input {
-    height: 40px;
-    /* border-radius: 50px; */
+    outline: none;
     width: 360px;
     border: none;
     margin-left: 12px;
@@ -68,16 +67,38 @@
     height: 40px;
     border-radius: 50px;
     transition: all 0.3s;
+    cursor: pointer;
 }
 
 .searchbar button:hover {
-    width: 195px;
-    height: 45px;
+    width: 183px;
+    height: 43px;
+}
+
+.infoMsg {
+    color: #f38982;
+    width: 80%;
+    margin: auto;
+
+    margin-top: 40px;
+    font-size: 20px;
 }
 
 .nav-link {
     display: flex;
     justify-content: center;
+    position: relative;
+}
+
+.bookMarkBox {
+    display: none;
+    min-height: 200px;
+    width: 420px;
+    background-color: white;
+    position: absolute;
+    top: 100px;
+    z-index: 99;
+    right: 0px;
 }
 
 .nav-link>ul {
@@ -95,6 +116,7 @@
     display: flex;
     align-items: center;
     font-size: 1.05rem;
+    transition: all 0.3s ease-in-out;
 }
 
 .nav-link>ul>li>a {
@@ -150,6 +172,7 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    transition: all 0.2s ease-in-out;
 }
 
 .card:hover {
@@ -198,6 +221,7 @@
     height: 40px;
     width: 120px;
     border-radius: 50px;
+    transition: all 0.2s ease-in-out;
 
 }
 
@@ -231,7 +255,8 @@
     align-items: center;
     flex-direction: column;
 }
-.detailBox{
+
+.detailBox {
     width: 100%;
     height: 100%;
 }
@@ -287,6 +312,7 @@
     color: white;
     border-radius: 50%;
     font-size: 2rem;
+    cursor: pointer;
 }
 
 .recipe-ingredients {
@@ -352,4 +378,5 @@
     background-image: linear-gradient(to right bottom, rgb(106, 106, 106), rgb(0, 0, 0));
     color: white;
     font-size: 1rem;
+    cursor: pointer;
 }
